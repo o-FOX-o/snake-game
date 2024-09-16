@@ -1,0 +1,124 @@
+body,html {
+    width: 100%;
+    height:inherit;
+    overflow-x: hidden;
+    background-color: transparent;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    background-repeat: no-repeat;
+    text-align: center;
+    justify-content: center;
+    background-image: url(../src/retouch_1702256974666.JPEG);
+    animation-name: background;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    z-index: 99;
+    top: 0;
+    left: 0;
+}
+
+
+.board{ 
+    display:grid;
+    height: 80%;
+    aspect-ratio: 1/1;
+    background-image: url('../src/board-cell.png');  
+    background-repeat: repeat; 
+    border: solid 0.2rem black;
+    margin: auto;
+    margin-top: 10%;
+    border-radius:1rem;
+}
+
+.snake-block{
+    width: 90%;
+    margin: auto;
+    margin-top: 5%;
+    aspect-ratio: 1 / 1;
+    background-color:aliceblue;
+    border-radius: 50%;
+}
+
+.part{
+    background-color: brown;
+    width: 70%;
+}
+
+.head {
+    grid-area: 1/6;
+    background-color: red;
+}
+
+*{
+    z-index: 100;
+}
+header {
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+    margin-block: 1.8rem;
+}
+img{
+    object-fit: cover;
+    height: 15vh;
+    width: 30vw;
+    filter: drop-shadow(3px 3px 3px);
+}
+
+
+main {
+    height: 70vh;
+    aspect-ratio: 1/1;
+    margin: auto;
+    border-width: 2rem;
+    border:ridge 0.4rem rgb(58, 0, 0) ;
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes background{
+    10%,87.5%,100% {
+        background-image: url(../src/retouch_1702256974666.JPEG);
+    }
+    12.5%,35% {
+        background-image: url(../src/retouch_1702257079604.JPEG);
+    }
+    37.5%,60% {
+        background-image: url(../src/retouch_1702257275990.JPEG);
+    }
+    62.5%,85% {
+        background-image: url(../src/retouch_1702548815407.JPEG);                                                            
+    }
+}
+
+
+/*clock styling*/
+.clock-div{
+    z-index: 200;
+    background-color: rgb(255, 190, 94,0.7);
+    border: solid;
+    border-width: 2px;
+    border-color: black;
+    height: 40px;
+    width: 60px;
+    position: fixed;
+    text-align: center;
+    top: 10px;
+    left: 10px;
+}
+.clock-p{
+    padding: 0;
+    padding-top: 3px;
+    margin: 0;
+}
