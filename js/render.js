@@ -1,6 +1,10 @@
 const boardLength = 10;
-const snakeLength = 1;
-const snakeBody = [];
+const snakeLength = 6;
+const snake = {
+    cords: [],
+    parts: []
+};
+let movement 
 
 window.addEventListener('load',()=>{
     //Time and date
@@ -29,10 +33,5 @@ document.addEventListener("dblclick", () => {
     toggleFullscreen();
 });
 
-    tools.render.board.body(boardLength,'main');
-    tools.render.snake.custom.part(tools.random.cord(boardLength),'head');
-    const head = document.querySelector('.head');
-    const headCord = tools.style.cord.get(head)    
-    snakeBody.push(headCord);
-    control.on();
+    tools.render.newGame()
 })

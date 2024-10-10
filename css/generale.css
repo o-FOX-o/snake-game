@@ -45,17 +45,18 @@ body {
     margin-top: 5%;
     aspect-ratio: 1 / 1;
     background-color:aliceblue;
-    border-radius: 50%;
+    border-radius: 43%;
 }
 
 .part{
-    background-color: brown;
-    width: 70%;
+    background-color: rgb(255, 11, 11);
+    width: 80%;
 }
 
 .head {
     grid-area: 1/6;
-    background-color: red;
+    background-color: rgb(90, 0, 0);
+    border-radius: 50%;
 }
 
 *{
@@ -89,15 +90,19 @@ main {
 
 @keyframes background{
     10%,87.5%,100% {
+        background-color: #000;
         background-image: url(../src/retouch_1702256974666.JPEG);
     }
     12.5%,35% {
+        background-color: #000;
         background-image: url(../src/retouch_1702257079604.JPEG);
     }
     37.5%,60% {
+        background-color: #000;
         background-image: url(../src/retouch_1702257275990.JPEG);
     }
     62.5%,85% {
+        background-color: #000;
         background-image: url(../src/retouch_1702548815407.JPEG);                                                            
     }
 }
