@@ -1,6 +1,7 @@
-const boardLength = 10;
-const snakeLength = 6;
-const snake = {
+let boardLength = 6;
+let snakeLength = 3;
+let sankeControl = 'manual';
+const snake = { 
     cords: [],
     parts: []
 };
@@ -32,6 +33,9 @@ function toggleFullscreen(){
 document.addEventListener("dblclick", () => {
     toggleFullscreen();
 });
-
-    tools.render.newGame()
+    tools.render.toolBox.renderSelectList(6,100,'#board-size-control');
+    tools.render.toolBox.renderSelectList(2,10,'#snake-size-control');
+    
+    tools.render.newGame();
+    // addRestListner();
 })

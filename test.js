@@ -16,7 +16,7 @@
 //     },
 //     //down
 //     (cord)=>{
-        
+
 //         return {row:cord.row+1,column:cord.column}
 //     },
 //     //left
@@ -36,7 +36,7 @@
 //         const taken = body.some((part)=>{
 //             return nextCord.row === part.row && nextCord.column === part.column
 //         })
-            
+
 //         if(nextCord.row > 0&&nextCord.row <=boardLength&&nextCord.column > 0&&nextCord.column <= length&&!taken){
 //             console.log(nextCord);
 //             snake.push(nextCord)
@@ -56,86 +56,86 @@
 // array.push(4)
 // console.log(array)
 
-class SnakeSegment {
-    constructor(index,nest,cord) {
-        this.index = index; 
-        this.nest = nest;
-        this.currentCord = cord;
-        if(index === 0){
-            this.type = 'head'; 
-        }else {
-            this.type= 'part'
-        }
-    }
+// class SnakeSegment {
+//     constructor(index,nest,cord) {
+//         this.index = index; 
+//         this.nest = nest;
+//         this.currentCord = cord;
+//         if(index === 0){
+//             this.type = 'head'; 
+//         }else {
+//             this.type= 'part'
+//         }
+//     }
 
-    create(cord){
-        const parent = document.querySelector(this.nest);
-        const part = document.createElement('div');
-        part.dataset.id = this.index;
-        
-        part.classList.add('snake-block',this.type);
-        parent.appendChild(part);
-        part.style.gridArea = `${cord.row}/${cord.column}`;
-        
-    }
-    left(cord){
-        const newCord = `${cord.row}/${cord.column-1}`;
-        control.off();
-        block.style.transform = 'translateX(100%)';
-        block.style.transition = 'transform 0.1s ease';
-        setTimeout(() => {
-        control.on();
-        block.style.gridArea = newCord;
-        tools.style.transform.reset(block);
-        }, 100);
-    }
-    right(cord){
-        const newCord = `${cord.row}/${cord.column+1}`;
-        control.off();
-        block.style.transform = 'translateX(100%)';
-        block.style.transition = 'transform 0.1s ease';
-        setTimeout(() => {
-        control.on();
-        block.style.gridArea = newCord;
-        tools.style.transform.reset(block);
-        }, 100);
-    }
-    up(cord){
-        const newCord = `${cord.row-1}/${cord.column}`;
-        control.off();
-        block.style.transform = 'translateY(-100%)';
-        block.style.transition = 'transform 0.1s ease';
-        setTimeout(() => {
-        control.on();
-        block.style.gridArea = newCord;
-        tools.style.transform.reset(block);
-        }, 100);
-    }
-    down(cord){
-        const newCord = `${cord.row+1}/${cord.column}`;
-        control.off();
-        block.style.transform = 'translateY(100%)';
-        block.style.transition = 'transform 0.1s ease';
-        setTimeout(() => {
-        control.on();
-        block.style.gridArea = newCord;
-        tools.style.transform.reset(block);
-        }, 100);
-    }
-    move(cord){;
-        control.off();
-        const vpos = cord.row === this.currentCord.row? 'x' : 'y';
-        const dir = cord.column > this.currentCord.column? '+' : '-'||cord.row > this.currentCord.row? '+' : '-';
-        block.style.transform = `translate${vpos}(${dir}100%)`;
-        block.style.transition = 'transform 0.1s ease';
-        setTimeout(() => {
-        control.on();
-        this.currentCord = cord;
-        block.style.gridArea = `${cord.row}/${cord.column}`;;
-        tools.style.transform.reset(block);
-        }, 100);
-    }
-}
+//     create(cord){
+//         const parent = document.querySelector(this.nest);
+//         const part = document.createElement('div');
+//         part.dataset.id = this.index;
+
+//         part.classList.add('snake-block',this.type);
+//         parent.appendChild(part);
+//         part.style.gridArea = `${cord.row}/${cord.column}`;
+
+//     }
+//     left(cord){
+//         const newCord = `${cord.row}/${cord.column-1}`;
+//         control.off();
+//         block.style.transform = 'translateX(100%)';
+//         block.style.transition = 'transform 0.1s ease';
+//         setTimeout(() => {
+//         control.on();
+//         block.style.gridArea = newCord;
+//         tools.style.transform.reset(block);
+//         }, 100);
+//     }
+//     right(cord){
+//         const newCord = `${cord.row}/${cord.column+1}`;
+//         control.off();
+//         block.style.transform = 'translateX(100%)';
+//         block.style.transition = 'transform 0.1s ease';
+//         setTimeout(() => {
+//         control.on();
+//         block.style.gridArea = newCord;
+//         tools.style.transform.reset(block);
+//         }, 100);
+//     }
+//     up(cord){
+//         const newCord = `${cord.row-1}/${cord.column}`;
+//         control.off();
+//         block.style.transform = 'translateY(-100%)';
+//         block.style.transition = 'transform 0.1s ease';
+//         setTimeout(() => {
+//         control.on();
+//         block.style.gridArea = newCord;
+//         tools.style.transform.reset(block);
+//         }, 100);
+//     }
+//     down(cord){
+//         const newCord = `${cord.row+1}/${cord.column}`;
+//         control.off();
+//         block.style.transform = 'translateY(100%)';
+//         block.style.transition = 'transform 0.1s ease';
+//         setTimeout(() => {
+//         control.on();
+//         block.style.gridArea = newCord;
+//         tools.style.transform.reset(block);
+//         }, 100);
+//     }
+//     move(cord){;
+//         control.off();
+//         const vpos = cord.row === this.currentCord.row? 'x' : 'y';
+//         const dir = cord.column > this.currentCord.column? '+' : '-'||cord.row > this.currentCord.row? '+' : '-';
+//         block.style.transform = `translate${vpos}(${dir}100%)`;
+//         block.style.transition = 'transform 0.1s ease';
+//         setTimeout(() => {
+//         control.on();
+//         this.currentCord = cord;
+//         block.style.gridArea = `${cord.row}/${cord.column}`;;
+//         tools.style.transform.reset(block);
+//         }, 100);
+//     }
+// }
 //deleted 
 // ,
 //         down: (block,cord)=>{
@@ -148,7 +148,7 @@ class SnakeSegment {
 //                     block.style.gridArea = `${cord.row+1}/${cord.column}`;
 //                     tools.style.transform.reset(block);
 //                 }, 100);
-                
+
 //             }
 //         },
 //         up: (block,cord)=>{
@@ -187,3 +187,18 @@ class SnakeSegment {
 //                 }, 100);
 //             }
 //         }
+// const min = 6
+// const max = 100
+
+// const options = [];
+// console.log(min,max)
+// const optionsNum = max - min 
+// for(let i = 0; i <= optionsNum;i++){
+//     const value = i+min
+//     options.push(`<option value="${value}">${value}</option>`);
+//     console.log(value)
+// }
+
+const string  = ' flhkdhf9348hito54hw98t h459ithog9i459ge 8io34hg9oi 3het9r64523995494944649213+9649865321g08oivh34e90t43irhf0'
+const numberArray = string.match(/9\d*/g)   
+console.log(numberArray)

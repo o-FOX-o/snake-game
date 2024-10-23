@@ -16,3 +16,12 @@ const control = {
         window.removeEventListener('keydown', control.handler)
     }
 }
+
+function addRestListner(){
+    const button = document.querySelector('#rest-button');
+    button.addEventListener('click',(event)=>{
+        event.preventDefault()
+        // tools.render.toolBox.rest();
+        return false
+    })
+}

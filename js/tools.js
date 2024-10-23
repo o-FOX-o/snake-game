@@ -14,8 +14,41 @@ const tools = {
         }
     },
     render:{
+        toolBox:{
+            renderSelectList:(min,max,parent)=>{
+                const select = document.querySelector(parent)
+                const options = [];
+                
+                const optionsNum = max - min 
+                for(let i = 0; i <= optionsNum;i++){
+                    const value = i+min
+                    options.push(`<option value="${value}">${value}</option>`);
+                }
+                options.forEach((option,i)=>{
+                
+                    select.innerHTML += options[i]
+                })
+            },
+            rest:()=>{
+                
+                const newSankeLenght = document.querySelector('#snake-size-control');
+                const newBoardLenght = document.querySelector('#board-size-control');
+                boardLength = newBoardLenght.value;
+                snakeLength = newSankeLenght.value;
+                snake.cords = [];
+                snake.parts = [];
+                
+                // tools.render.newGame();
+                
+            }
+        },
         newGame:()=>{
-            tools.render.board.body(boardLength,'main');
+            console.log(boardLength,snakeLength)
+            const board = document.querySelector('.board')
+            if(!board){
+                tools.render.board.body(boardLength,'main');      
+            }
+            
             tools.setCords(snakeLength,snake.cords,boardLength)
             tools.render.snake.generateSnake(snake.parts,snakeLength,'.board')
             snake.parts.forEach((part,i) => {
@@ -66,7 +99,7 @@ const tools = {
                     block.style.transform = 'translateX(-110%)';
                     block.style.transition = `transform ${tools.materials.speed}ms ease`;
                     const newCord = { row: this.currentCord.row, column: this.currentCord.column };
-                    console.log(newCord)
+                    
                     snake.cords.unshift(newCord);
                     snake.cords.pop()
                     setTimeout(() => {
@@ -82,7 +115,7 @@ const tools = {
                     block.style.transform = 'translateX(110%)';
                     block.style.transition = `transform ${tools.materials.speed}ms ease`;
                     const newCord = { row: this.currentCord.row, column: this.currentCord.column };
-                    console.log(newCord)
+                    
                     snake.cords.unshift(newCord);
                     snake.cords.pop()
                     setTimeout(() => {
@@ -99,7 +132,7 @@ const tools = {
                     block.style.transform = 'translateY(-110%)';
                     block.style.transition = `transform ${tools.materials.speed}ms ease`;
                     const newCord = { row: this.currentCord.row, column: this.currentCord.column };
-                    console.log(newCord)
+                    
                     snake.cords.unshift(newCord);
                     snake.cords.pop()
                     setTimeout(() => {
@@ -115,7 +148,7 @@ const tools = {
                     block.style.transform = 'translateY(110%)';
                     block.style.transition = `transform ${tools.materials.speed}ms ease`;
                     const newCord = { row: this.currentCord.row, column: this.currentCord.column };
-                    console.log(newCord)
+                    
                     snake.cords.unshift(newCord);
                     snake.cords.pop()
                     setTimeout(() => {
@@ -175,7 +208,7 @@ const tools = {
                 lessThanBoard: () => nextCord.row <= boardLength && nextCord.column <= boardLength,
                 taken: !taken
             };
-                    console.log(available.lessThanBoard(),available.overZero(),available.taken)
+                    // console.log(available.lessThanBoard(),available.overZero(),available.taken)
             if(available.lessThanBoard()&&available.overZero()&&available.taken){
                 
                 return {nextCord,randomFun}
@@ -263,7 +296,7 @@ const tools = {
             movement = tools.materials.currentMovement();
             setInterval(() => {
                 tools.movement.headMovment[movement]();
-                console.log(movement)
+                
                 
 
             }, tools.materials.speed+100);
